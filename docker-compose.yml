@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  backend:
+    build: ./services/backend    
+    ports:
+      - 5000:5000
+    volumes:
+      - ./services/backend/src:/app
+    command: uvicorn app:app --reload --host 0.0.0.0 --port 5000
+    container_name: yakb_backend
+
+  frontend:
+    build: ./services/frontend
+    volumes:
+      - './services/frontend/src:/app/src'
+    ports:
+      - 4200:4200
+    container_name: yakb_frontend

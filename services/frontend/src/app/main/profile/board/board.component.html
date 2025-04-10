@@ -1,0 +1,112 @@
+<div class="board-container">
+<div class="example-container">
+  <!-- New Column -->
+  <h2 style="text-align: center;">New</h2>
+  <div
+    class="example-list"
+    id="newColumn"
+    cdkDropList="cdkDropList"
+    #new="cdkDropList"
+    [cdkDropListData]="items.newItems"
+    [cdkDropListConnectedTo]="[active]"
+    (cdkDropListDropped)="dropped($event)">
+    <div class ="custom-icon-button">
+      <button mat-icon-button="mat-icon-button" 
+              (click)="addCard('newColumn')">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+
+
+    <div class="example-box"      
+      *ngFor="let item of items.newItems;index as i"
+      cdkDrag="cdkDrag"
+      [cdkDragData]="item"      
+    >
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <app-card        
+        [cardContent]="item.text"
+        [cardColumn]="'newItems'"
+        [cardId]="item.id"
+        (deleteItem)="crossOffItem($event)"   
+        (renameItem)="renameCard($event)"     
+        >
+      </app-card>
+    </div>
+  </div>
+</div>
+
+<!-- In Progress Column -->
+<div class="example-container">
+  <h2 style="text-align: center;">In Progress</h2>
+  <div
+    class="example-list"
+    id="activeColumn"
+    cdkDropList="cdkDropList"
+    #active="cdkDropList"
+    [cdkDropListData]="items.activeItems"
+    [cdkDropListConnectedTo]="[new, done]"
+    (cdkDropListDropped)="dropped($event)">
+
+    <div class ="custom-icon-button">
+      <button mat-icon-button="mat-icon-button" 
+              (click)="addCard('activeColumn')">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>    
+    <div      
+      class="example-box"
+      *ngFor="let item of items.activeItems"
+      cdkDrag="cdkDrag"
+      [cdkDragData]="item"
+      >
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <app-card 
+        [cardContent]="item.text"
+        [cardColumn]="'activeItems'"
+        [cardId]="item.id"
+        (deleteItem)="crossOffItem($event)"
+        (renameItem)="renameCard($event)"
+        >
+      </app-card>
+    </div>
+  </div>
+
+</div>
+
+<!-- Done Column -->
+<div class="example-container">
+  <h2 style="text-align: center;">Done</h2>
+  <div
+    class="example-list"
+    id="doneColumn"
+    cdkDropList="cdkDropList"
+    #done="cdkDropList"
+    [cdkDropListData]="items.doneItems"
+    [cdkDropListConnectedTo]="[active]"
+    (cdkDropListDropped)="dropped($event)">    
+    <div class ="custom-icon-button">
+      <button mat-icon-button="mat-icon-button" 
+              (click)="addCard('doneColumn')">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+    <div
+      class="example-box"
+      *ngFor="let item of items.doneItems"
+      cdkDrag="cdkDrag"
+      [cdkDragData]="item"
+      >
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <app-card
+        [cardContent]="item.text"
+        [cardColumn]="'doneItems'"
+        [cardId]="item.id"
+        (deleteItem)="crossOffItem($event)"
+        (renameItem)="renameCard($event)"
+      >
+      </app-card>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body { height: 100%; }
+body { 
+        margin: 0; 
+        font-family: Roboto "Helvetica Neue", sans-serif;         
+}
+
+/* Styles for the container and card */
+.card-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles for the form and form elements */
+  form {
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Styles for error messages */
+  .alert-danger {
+    color: #a94442;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  
+  /* Styles for the "Sign Up" button */
+  button.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  /* Hover and focus effects for the button */
+  button.btn-primary:hover,
+  button.btn-primary:focus {
+    background-color: #0056b3;
+  }
+  
+  /* Styles for success message */
+  .alert-success {
+    color: #3c763d;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }

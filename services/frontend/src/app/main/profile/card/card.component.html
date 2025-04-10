@@ -1,0 +1,16 @@
+<div class="cardContainer">
+    <mat-form-field appearance="fill" class="cardText">        
+        <textarea matInput type="text" 
+               cols="300"
+               #inputRef
+               cdkTextareaAutosize
+               placeholder="New empty card" 
+               value={{cardContent}} 
+               (click)="inputRef.select()"
+               (change)="onInputChange($event)"
+        ></textarea>    
+    </mat-form-field>        
+    <button mat-icon-button="mat-icon-button" (click)="delItem()" class="cancelButton">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>

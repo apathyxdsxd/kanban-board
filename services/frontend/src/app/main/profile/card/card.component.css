@@ -1,0 +1,21 @@
+button[mat-icon-button]:hover {
+    color: red; /* Change this to your preferred hover color */
+  }
+  .cardContainer {
+    position: relative;
+    /*display:flex;*/
+    width:90%;
+  }
+  
+  .cardText {
+    /*width: 400px;*/
+    width:100%;
+    min-width: 0; /* To override any minimum width set by Angular Material */
+  }
+  
+  .cancelButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }

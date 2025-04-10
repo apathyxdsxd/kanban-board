@@ -1,0 +1,15 @@
+.progressbar-container {
+    width:90%;
+    max-width: 100%;
+    margin: 30px auto;
+    display: inline-flexbox;
+    vertical-align: top;
+  }
+
+.percentage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* or any desired height for the container */
+    text-align: center;
+  }
