@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular/core": "^19.2.6",
+    "@angular/platform-browser-dynamic": "^19.2.6",
+    "typescript": "^5.8.3"
+  }
+}
