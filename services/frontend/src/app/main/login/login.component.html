@@ -8,7 +8,7 @@
         novalidate
       >
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">почта</label>
           <input
             type="email"
             class="form-control"
@@ -19,14 +19,14 @@
             #email="ngModel"
           />
           <div class="alert-danger" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors['required']">Email is required</div>
+            <div *ngIf="email.errors['required']">необходимо указать почту</div>
             <div *ngIf="email.errors['email']">
-              Email must be a valid email address
+              Адрес электронной почты должен быть действительным
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Пароль</label>
           <input
             type="password"
             class="form-control"
@@ -37,23 +37,23 @@
             #password="ngModel"
           />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
-            <div *ngIf="password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors['required']">Требуется пароль</div>
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Sign In</button>
+          <button class="btn btn-primary btn-block">Войти</button>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          Login failed!<br />{{ errorMessage }}
+          Ошибка входа<br />{{ errorMessage }}
         </div>
       </form>
   
       <div class="alert alert-success" *ngIf="isSuccessful">
-        Your registration is successful!
+        регистрация завершена!!
       </div>
 
-      <button class="btn btn-secondary btn-block" (click)="navigateToSignUp()">Sign Up</button>      
+      <button class="btn btn-secondary btn-block" (click)="navigateToSignUp()">Зарегестрироваться</button>      
     </div>
   </div>
   

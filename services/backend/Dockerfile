@@ -1,22 +1,22 @@
-# For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.8-slim-buster
 
 EXPOSE 5000
 
-# Keeps Python from generating .pyc files in the container
+# Оптимизация работы Python
 ENV PYTHONDONTWRITEBYTECODE=1
-
-# Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-# Install pip requirements
-COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
-
+# Установка зависимостей Python
 WORKDIR /app
-COPY ./src/* /app/
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir -r requirements.txt
 
-# Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
-RUN useradd appuser && chown -R appuser /app
+# Копирование исходного кода
+COPY ./src/ /app/
+
+# Создание непривилегированного пользователя
+RUN useradd -m appuser && chown -R appuser /app
 USER appuser
 
+# Команда для запуска приложения
+CMD ["python", "your_main_file.py"]

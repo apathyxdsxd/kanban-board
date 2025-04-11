@@ -8,7 +8,7 @@
         novalidate
       >
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">почта</label>
           <input
             type="email"
             class="form-control"
@@ -19,14 +19,14 @@
             #email="ngModel"
           />
           <div class="alert-danger" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors['required']">Email is required</div>
+            <div *ngIf="email.errors['required']">требуется e-mail</div>
             <div *ngIf="email.errors['email']">
-              Email must be a valid email address
+              адрес эл. почты должен быть действительным
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Пароль</label>
           <input
             type="password"
             class="form-control"
@@ -37,9 +37,9 @@
             #password="ngModel"
           />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
-            <div *ngIf="password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors['required']">требуется пароль</div>
             <div *ngIf="password.errors['minlength']">
-              Password must be at least 6 characters
+              Пароль должен содержать от 6 символов
             </div>
           </div>
         </div>
@@ -48,12 +48,12 @@
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          Signup failed!<br />{{ errorMessage }}
+          Регистрация не удалась<br />{{ errorMessage }}
         </div>
       </form>
   
       <div class="alert alert-success" *ngIf="isSuccessful">
-        Your registration is successful!
+        Регистрация прошла успешно
       </div>
     </div>
   </div>

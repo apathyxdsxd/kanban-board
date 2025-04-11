@@ -1,25 +1,46 @@
-**/__pycache__
-**/.classpath
-**/.dockerignore
-**/.env
+# Игнорирование системных и IDE файлов
 **/.git
 **/.gitignore
+**/.vscode
+**/.vs
+**/.idea
+**/*.swp
+**/*.swo
+**/.DS_Store
+
+# Игнорирование зависимостей и сборок
+**/node_modules
+**/dist
+**/bin
+**/obj
+**/.angular
+**/.cache
+
+# Игнорирование конфигурационных файлов
+**/.env
+**/.env.*
+**/secrets*.yaml
+**/values*.yaml
+**/azds.yaml
+**/docker-compose*
+**/Dockerfile*
+
+# Игнорирование логов и временных файлов
+**/npm-debug.log
+**/yarn-error.log
+**/__pycache__
+**/*.pyc
+
+# Игнорирование специфичных файлов IDE
+**/.classpath
 **/.project
 **/.settings
 **/.toolstarget
-**/.vs
-**/.vscode
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm
-**/azds.yaml
-**/bin
-**/charts
-**/docker-compose*
-**/Dockerfile*
-**/node_modules
-**/npm-debug.log
-**/obj
-**/secrets.dev.yaml
-**/values.dev.yaml
+
+# Игнорирование документации (опционально)
 README.md
+**/CHANGELOG.md
+**/LICENSE

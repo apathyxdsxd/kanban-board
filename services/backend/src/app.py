@@ -56,31 +56,31 @@ def authjwt_exception_handler(request: Request, exc: AuthJWTException):
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World Rasyue"}
+    return {"Поставьте пожалуйста": "Зачет"}
 
 @app.post('/login')
 def login(user: User, Authorize: AuthJWT = Depends()):        
     with session_manager() as db:
         exists = db.query(models.User).filter_by(email=user.email).first()
         if exists == None:
-            return JSONResponse(status_code=500, content={"message": 'User not found'})        
+            return JSONResponse(status_code=500, content={"message": 'Пользователь не найден'})        
         if(check_password_hash(exists.password_hash, user.password)):
             access_token = Authorize.create_access_token(subject=user.email,expires_time=86400000)
             return {"access_token": access_token}
         else:
-            return JSONResponse(status_code=500, content={"message": 'Wrong password'})        
+            return JSONResponse(status_code=500, content={"message": 'Неверный пароль'})        
 
 @app.post('/register',status_code=201)
 def register(user:User):    
     with session_manager() as db:
         exists = bool(db.query(models.User).filter_by(email=user.email).first())
         if exists:
-            return JSONResponse(status_code=500, content={"message": 'Email already registered'})              
+            return JSONResponse(status_code=500, content={"message": 'Такой email уже зареган'})              
         u = models.User(email=user.email)
         u.set_password(user.password)
         db.add(u)
         db.commit()
-        return {"email": user.email, 'msg':'new user created'}
+        return {"email": user.email, 'msg':'новый пользователь добавлен'}
 
 @app.get('/test-jwt')
 def user(Authorize: AuthJWT = Depends()):
@@ -112,7 +112,7 @@ def getCards(boardId:int,Authorize:AuthJWT=Depends()):
             result=db.query(models.Card).filter(models.Card.board_id == board.id).order_by(models.Card.order_id).all()
             return [card.__dict__ for card in result]
         else:
-            return JSONResponse(status_code=500, content={"message": 'Board not found'})            
+            return JSONResponse(status_code=500, content={"message": 'доска не найдена'})            
             
 @app.post('/createEmptyBoard',status_code=201)
 def createEmptyBoard(Title:str,Authorize:AuthJWT=Depends()):

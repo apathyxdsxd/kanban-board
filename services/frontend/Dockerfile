@@ -1,16 +1,12 @@
-FROM node:17.2-alpine3.12
+FROM node:18.20.2-alpine
+
 WORKDIR /app
+COPY package.json .
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+RUN npm install -g npm@8.19.4 && \
+    npm install --legacy-peer-deps --force
 
-# install and cache app dependencies
-COPY package.json /app/package.json
-RUN npm install
+COPY . .
+RUN npm run build -- --configuration=production
 
-# add app
-COPY . /app
-
-# start app # default port is 4200
-CMD ng serve --host 0.0.0.0
-
+CMD ["npm", "start", "--", "--host", "0.0.0.0"]

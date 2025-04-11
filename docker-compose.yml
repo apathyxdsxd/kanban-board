@@ -1,14 +1,14 @@
-version: '3.4'
-
 services:
   backend:
     build: ./services/backend    
     ports:
-      - 5000:5000
+      - 5000:5000  # Изменяем внешний порт на 5001
     volumes:
       - ./services/backend/src:/app
     command: uvicorn app:app --reload --host 0.0.0.0 --port 5000
     container_name: yakb_backend
+    environment:
+      - PORT=5000  # Внутри контейнера порт остается 5000
 
   frontend:
     build: ./services/frontend
